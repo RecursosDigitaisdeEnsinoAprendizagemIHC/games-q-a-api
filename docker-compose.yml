@@ -1,0 +1,47 @@
+version: "3.3"
+
+services:
+  games-qa-api:
+    container_name: games-qa-api
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./games-qa-api:/usr/src/app/games-qa-api
+      - /usr/src/app/games-qa-api/node_modules
+    depends_on:
+      - db
+    stdin_open: true
+    tty: true
+    ports:
+      - 8080:8080
+    env_file: ./.env
+    environment:
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+      MYSQL_DATABASE: $MYSQL_DATABASE
+      MYQL_TCP_PORT: $MYQL_TCP_PORT
+      PORT: 8080
+  db:
+    image: mysql:5.7
+    restart: always
+    env_file: ./.env
+    environment:
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+      MYSQL_DATABASE: $MYSQL_DATABASE
+      MYQL_TCP_PORT: $MYQL_TCP_PORT
+    expose:
+      - $MYQL_TCP_PORT
+    ports:
+      - "$MYQL_TCP_PORT:$MYQL_TCP_PORT"
+    volumes:
+      - db-data:/var/lib/mysql
+      - db-config:/etc/mysql
+      - ./db/backup/files/:/data_backup/data
+
+volumes:
+  db-config:
+  db-data:
+
+networks:
+  mysql-compose-network:
+    driver: bridge

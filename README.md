@@ -9,7 +9,7 @@ Example:
 ```
 MYSQL_ROOT_PASSWORD=somepass
 MYSQL_DATABASE=question-qa
-MYQL_TCP_PORT=5432
+MYSQL_TCP_PORT=5432
 ```
 
 Second, run the development server:

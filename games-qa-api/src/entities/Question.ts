@@ -1,6 +1,6 @@
 import {
   Entity,
-  PrimaryColumn,
+  PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
   UpdateDateColumn,
@@ -8,7 +8,7 @@ import {
 
 @Entity("questions")
 export class Question {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn("increment")
   readonly id: number;
 
   @Column()

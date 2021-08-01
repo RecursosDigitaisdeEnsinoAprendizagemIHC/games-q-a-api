@@ -1,6 +1,6 @@
 import {
   Entity,
-  PrimaryColumn,
+  PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
   UpdateDateColumn,
@@ -10,9 +10,9 @@ import {
 import { Question } from "./Question";
 import { QuestionOption } from "./QuestionOption";
 
-@Entity("question_options")
-export class Anwser {
-  @PrimaryColumn()
+@Entity("answers")
+export class Answer {
+  @PrimaryGeneratedColumn("increment")
   readonly id: number;
 
   @JoinColumn({ name: "question_id" })

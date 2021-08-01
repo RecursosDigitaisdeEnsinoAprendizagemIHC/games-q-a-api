@@ -1,6 +1,6 @@
 import {
   Entity,
-  PrimaryColumn,
+  PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
   UpdateDateColumn,
@@ -9,9 +9,9 @@ import {
 } from "typeorm";
 import { Question } from "./Question";
 
-@Entity("question_options")
-export class Anwser {
-  @PrimaryColumn()
+@Entity("tips")
+export class Tip {
+  @PrimaryGeneratedColumn("increment")
   readonly id: number;
 
   @JoinColumn({ name: "question_id" })

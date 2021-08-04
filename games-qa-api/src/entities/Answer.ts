@@ -4,7 +4,6 @@ import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
-  ManyToOne,
   OneToOne,
   JoinColumn,
 } from "typeorm";
@@ -20,9 +19,8 @@ export class Answer {
   @OneToOne(() => Question, (question) => question.answer)
   question: Question;
 
-  @JoinColumn({ name: "question_option_id" })
-  @ManyToOne(() => QuestionOption)
-  questionOption: QuestionOption;
+  @Column()
+  option: string;
 
   @Column()
   reason: string;

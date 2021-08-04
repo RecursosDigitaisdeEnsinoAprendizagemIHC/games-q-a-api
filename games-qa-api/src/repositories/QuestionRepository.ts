@@ -3,19 +3,20 @@ import { Question } from "../entities/Question";
 
 @EntityRepository(Question)
 export class QuestionRepository extends Repository<Question> {
+  relationsData = {
+    relations: ["questionOptions", "answer"],
+  };
+
+  findAll() {
+    return this.find({ ...this.relationsData });
+  }
+
   findByTheme(theme: string) {
     return this.find({
       where: {
         theme,
       },
-      relations: ["questionOptions"],
-      join: {
-        alias: "question",
-        leftJoinAndSelect: {
-          answer: "question.answer",
-          questionOption: "answer.questionOption",
-        },
-      },
+      ...this.relationsData,
     });
   }
 }

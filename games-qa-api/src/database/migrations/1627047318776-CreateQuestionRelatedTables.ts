@@ -111,8 +111,8 @@ export class CreateQuestionRelatedTables1627047318776
             type: "int",
           },
           {
-            name: "question_option_id",
-            type: "int",
+            name: "option",
+            type: "varchar",
           },
           {
             name: "reason",
@@ -135,12 +135,6 @@ export class CreateQuestionRelatedTables1627047318776
             referencedTableName: "questions",
             referencedColumnNames: ["id"],
             columnNames: ["question_id"],
-          },
-          {
-            name: "FKQuestionOptionsAnswer",
-            referencedTableName: "question_options",
-            referencedColumnNames: ["id"],
-            columnNames: ["question_option_id"],
           },
         ],
       })

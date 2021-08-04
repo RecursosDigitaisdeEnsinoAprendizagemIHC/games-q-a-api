@@ -20,10 +20,6 @@ export class CreateQuestionRelatedTables1627047318776
             type: "varchar",
           },
           {
-            name: "description",
-            type: "varchar",
-          },
-          {
             name: "type",
             type: "varchar",
           },

@@ -8,7 +8,6 @@ import {
   JoinColumn,
 } from "typeorm";
 import { Question } from "./Question";
-import { QuestionOption } from "./QuestionOption";
 
 @Entity("answers")
 export class Answer {

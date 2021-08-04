@@ -19,9 +19,6 @@ export class Question {
   title: string;
 
   @Column()
-  description: string;
-
-  @Column()
   type: string;
 
   @Column()

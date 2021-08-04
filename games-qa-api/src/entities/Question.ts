@@ -4,7 +4,11 @@ import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
+  OneToMany,
+  OneToOne,
 } from "typeorm";
+import { Answer } from "./Answer";
+import { QuestionOption } from "./QuestionOption";
 
 @Entity("questions")
 export class Question {
@@ -25,6 +29,12 @@ export class Question {
 
   @Column()
   subtheme: string;
+
+  @OneToMany(() => QuestionOption, (questionOption) => questionOption.question)
+  questionOptions: QuestionOption[];
+
+  @OneToOne(() => Answer, (answer) => answer.question)
+  answer: Answer;
 
   @CreateDateColumn()
   created_at: Date;

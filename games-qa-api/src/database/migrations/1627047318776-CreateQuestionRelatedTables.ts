@@ -34,6 +34,7 @@ export class CreateQuestionRelatedTables1627047318776
           {
             name: "subtheme",
             type: "varchar",
+            isNullable: true,
           },
           {
             name: "created_at",

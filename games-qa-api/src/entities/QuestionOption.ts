@@ -15,8 +15,8 @@ export class QuestionOption {
   readonly id: number;
 
   @JoinColumn({ name: "question_id" })
-  @ManyToOne(() => Question)
-  questionId: Question;
+  @ManyToOne(() => Question, (question) => question.questionOptions)
+  question: Question;
 
   @Column()
   option: string;

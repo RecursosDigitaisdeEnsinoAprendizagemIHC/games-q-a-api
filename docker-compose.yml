@@ -19,7 +19,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
       MYSQL_DATABASE: $MYSQL_DATABASE
-      MYQL_TCP_PORT: $MYQL_TCP_PORT
+      MYSQL_TCP_PORT: $MYSQL_TCP_PORT
       PORT: 8080
   db:
     image: mysql:5.7

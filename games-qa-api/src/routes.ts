@@ -25,7 +25,7 @@ router.post(
   ensureAuthenticated,
   createUserAuthenticatedController.handle
 );
-router.post("/users", createRegularUserController.handle);
+// router.post("/users", createRegularUserController.handle);
 router.get("/questions", listQuestionsController.handle);
 router.post(
   "/questions",

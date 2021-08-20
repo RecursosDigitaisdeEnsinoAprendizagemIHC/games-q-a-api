@@ -14,6 +14,9 @@ export class QuestionOption {
   @PrimaryGeneratedColumn("increment")
   readonly id: number;
 
+  @Column({ name: "question_id" })
+  questionId: number;
+
   @JoinColumn({ name: "question_id" })
   @ManyToOne(() => Question, (question) => question.questionOptions)
   question: Question;

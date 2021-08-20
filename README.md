@@ -8,7 +8,7 @@ Example:
 
 ```
 MYSQL_ROOT_PASSWORD=somepass
-MYSQL_DATABASE=question-qa
+MYSQL_DATABASE=games-qa
 MYSQL_TCP_PORT=5432
 ```
 

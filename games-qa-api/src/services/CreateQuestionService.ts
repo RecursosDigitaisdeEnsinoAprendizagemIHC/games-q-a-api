@@ -2,6 +2,11 @@ import { getCustomRepository } from "typeorm";
 import { QuestionRepository } from "../repositories/QuestionRepository";
 import { QuestionOptionRepository } from "../repositories/QuestionOptionRepository";
 import { AnswerRepository } from "../repositories/AnswerRepository";
+import {
+  QUESTION_TYPES,
+  QUESTION_THEMES,
+  QUESTION_SUBTHEMES,
+} from "../entities/Question";
 
 interface IAnswerRequest {
   option: string;
@@ -30,6 +35,18 @@ export const createQuestionService = async ({
   options = [],
   answer,
 }: IQuestionRequest) => {
+  if (!QUESTION_TYPES.includes(type)) {
+    throw new Error(`Invalid type '${type}'`);
+  }
+
+  if (!QUESTION_THEMES.includes(theme)) {
+    throw new Error(`Invalid theme '${theme}'`);
+  }
+
+  if (subtheme && !QUESTION_SUBTHEMES[theme].includes(subtheme)) {
+    throw new Error(`Invalid subtheme '${subtheme}' of theme ${theme}`);
+  }
+
   const questionRepository = getCustomRepository(QuestionRepository);
   const questionOptionRepository = getCustomRepository(
     QuestionOptionRepository

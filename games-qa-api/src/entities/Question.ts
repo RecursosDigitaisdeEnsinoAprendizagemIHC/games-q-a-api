@@ -39,3 +39,9 @@ export class Question {
   @UpdateDateColumn()
   updated_at: Date;
 }
+
+export const QUESTION_TYPES = ["ME", "VF"];
+export const QUESTION_THEMES = ["persona"];
+export const QUESTION_SUBTHEMES = {
+  persona: ["persona_concepts", "persona_creation"],
+};

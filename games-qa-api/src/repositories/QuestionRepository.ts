@@ -9,11 +9,15 @@ interface IFilters {
 @EntityRepository(Question)
 export class QuestionRepository extends Repository<Question> {
   relationsData = {
-    relations: ["questionOptions", "answer"],
+    relations: ["questionOptions"],
   };
 
   findAll() {
     return this.find({ ...this.relationsData });
+  }
+
+  findOneWithAnwser(questionId: number) {
+    return this.find({ where: { id: questionId }, relations: ["answer"] });
   }
 
   findByTheme(theme: string, subtheme: string) {

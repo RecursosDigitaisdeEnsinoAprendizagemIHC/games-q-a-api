@@ -17,7 +17,7 @@ export class QuestionRepository extends Repository<Question> {
   }
 
   findOneWithAnwser(questionId: number) {
-    return this.find({ where: { id: questionId }, relations: ["answer"] });
+    return this.findOne({ where: { id: questionId }, relations: ["answer"] });
   }
 
   findByTheme(theme: string, subtheme: string) {

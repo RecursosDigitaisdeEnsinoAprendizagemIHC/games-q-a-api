@@ -23,5 +23,9 @@ export class QuestionsSeed1629423807071 implements MigrationInterface {
     }
   }
 
-  public async down(queryRunner: QueryRunner): Promise<void> {}
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    await getRepository(Answer).delete({});
+    await getRepository(QuestionOption).delete({});
+    await getRepository(Question).delete({});
+  }
 }

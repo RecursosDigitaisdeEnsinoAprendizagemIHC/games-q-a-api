@@ -380,7 +380,7 @@ export const QuestionSeed = [
     theme: "persona",
     subtheme: "persona_concepts",
     answer: {
-      option: "F",
+      option: "V",
       reason:
         "Cooper argumenta que, a cada vez que estendemos a funcionalidade para incluir mais um grupo de usuários, colocamos mais um obstáculo no caminho de todos os outros usuários. Em outras palavras, os recursos que agradam alguns usuários interferem na satisfação e no desempenho de outros. Segundo ele, tentar agradar a muitos pontos de vista diferentes pode arruinar um bom produto.",
     },

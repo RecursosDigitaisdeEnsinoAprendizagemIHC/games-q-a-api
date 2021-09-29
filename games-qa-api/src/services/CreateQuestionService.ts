@@ -20,6 +20,7 @@ interface IQuestionOptionRequest {
 
 interface IQuestionRequest {
   title: string;
+  description: string;
   type: string;
   theme: string;
   subtheme?: string;
@@ -29,6 +30,7 @@ interface IQuestionRequest {
 
 export const createQuestionService = async ({
   title,
+  description,
   type,
   theme,
   subtheme,
@@ -55,6 +57,7 @@ export const createQuestionService = async ({
 
   const question = await questionRepository.create({
     title,
+    description,
     type,
     theme,
     subtheme,
@@ -62,8 +65,8 @@ export const createQuestionService = async ({
 
   await questionRepository.save(question);
 
-  for (let option of options) {
-    let questionOption = questionOptionRepository.create({
+  for (const option of options) {
+    const questionOption = questionOptionRepository.create({
       question: question,
       option: option.option,
       description: option.description,

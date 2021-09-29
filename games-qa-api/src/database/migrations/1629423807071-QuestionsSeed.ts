@@ -42,14 +42,14 @@ export class QuestionsSeed1629423807071 implements MigrationInterface {
       })
     );
 
-    for (let item of QuestionSeed) {
+    for (const item of QuestionSeed) {
       const { answer, options, ...question } = item;
       const savedQuestion = await getRepository(Question).save(question);
       await getRepository(Answer).save({
         ...answer,
         questionId: savedQuestion.id,
       });
-      for (let option of options) {
+      for (const option of options) {
         await getRepository(QuestionOption).save({
           ...option,
           questionId: savedQuestion.id,

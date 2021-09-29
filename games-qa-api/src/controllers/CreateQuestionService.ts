@@ -8,6 +8,7 @@ export class CreateQuestionsController {
 
     const question = await createQuestionService({
       title,
+      description,
       type,
       theme,
       subtheme,

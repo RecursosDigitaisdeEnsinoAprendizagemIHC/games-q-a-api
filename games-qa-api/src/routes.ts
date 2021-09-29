@@ -5,7 +5,7 @@ import { ensureAuthenticated } from "./middlewares/ensureAuthenticated";
 import { AuthController } from "./controllers/AuthController";
 import {
   CreateUserAuthenticatedController,
-  CreateRegularUserController,
+  // CreateRegularUserController,
 } from "./controllers/CreateUserController";
 import { ListQuestionsController } from "./controllers/ListQuestionsController";
 import { CreateQuestionsController } from "./controllers/CreateQuestionService";
@@ -16,7 +16,7 @@ export const router = Router();
 const authController = new AuthController();
 const createUserAuthenticatedController =
   new CreateUserAuthenticatedController();
-const createRegularUserController = new CreateRegularUserController();
+// const createRegularUserController = new CreateRegularUserController();
 const listQuestionsController = new ListQuestionsController();
 const getQuestionAnswerController = new GetQuestionAnswerController();
 const createQuestionsController = new CreateQuestionsController();

@@ -302,7 +302,7 @@ export const QuestionSeed = [
     theme: "persona",
     subtheme: "persona_concepts",
     answer: {
-      option: "C",
+      option: "A",
       reason:
         "Para definir uma persona, Courage e Baxter (2005) enumeram os seguintes elementos característicos: identidade, status, objetivos, habilidades,  tarefas, relacionamentos, requisitos e expectativas.",
     },

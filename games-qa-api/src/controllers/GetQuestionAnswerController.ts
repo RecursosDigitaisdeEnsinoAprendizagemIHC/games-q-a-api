@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { getQuestionAnswerService } from "../services/GetQuestionAnswerService";
+import { makeResponse } from "./helpers/makeResponse";
 
 export class GetQuestionAnswerController {
   async handle(request: Request, response: Response) {
@@ -7,6 +8,6 @@ export class GetQuestionAnswerController {
 
     const questionAnswer = await getQuestionAnswerService({ questionId });
 
-    return response.json(questionAnswer);
+    return  makeResponse(response, questionAnswer)
   }
 }

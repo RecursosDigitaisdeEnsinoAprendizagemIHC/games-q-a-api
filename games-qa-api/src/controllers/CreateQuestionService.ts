@@ -1,12 +1,13 @@
 import { Request, Response } from "express";
 import { createQuestionService } from "../services/CreateQuestionService";
+import { makeResponse } from "./helpers/makeResponse";
 
 export class CreateQuestionsController {
   async handle(request: Request, response: Response) {
     const { title, description, type, theme, subtheme, options, answer } =
       request.body;
 
-    const question = await createQuestionService({
+    const questionResponse = await createQuestionService({
       title,
       description,
       type,
@@ -16,6 +17,6 @@ export class CreateQuestionsController {
       answer,
     });
 
-    return response.json(question);
+    return makeResponse(response, questionResponse);
   }
 }

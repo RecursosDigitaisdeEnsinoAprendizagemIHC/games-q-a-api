@@ -3,6 +3,7 @@ import { getCustomRepository } from "typeorm";
 
 import { createUserService } from "../services/CreateUserService";
 import { UserRepository } from "../repositories/UserRepository";
+import { makeResponse } from "./helpers/makeResponse";
 
 export class CreateUserAuthenticatedController {
   async handle(request: Request, response: Response) {
@@ -14,14 +15,14 @@ export class CreateUserAuthenticatedController {
 
     const newAdmin: boolean = loggedUser.admin ? admin : false;
 
-    const user = await createUserService({
+    const userResponse = await createUserService({
       name,
       email,
       password,
       admin: newAdmin,
     });
 
-    return response.json(user);
+    return  makeResponse(response, userResponse);
   }
 }
 
@@ -29,13 +30,13 @@ export class CreateRegularUserController {
   async handle(request: Request, response: Response) {
     const { name, email, password } = request.body;
 
-    const user = await createUserService({
+    const userResponse = await createUserService({
       name,
       email,
       password,
       admin: false,
     });
 
-    return response.json(user);
+    return  makeResponse(response, userResponse)
   }
 }

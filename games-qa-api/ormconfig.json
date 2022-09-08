@@ -1,11 +1,12 @@
 {
   "name": "default",
   "type": "mysql",
-  "host": "localhost",
+  "host": "db",
   "port": 5432,
   "username": "root",
   "password": "somepass",
   "database": "games-qa",
+  "synchronize": true,
   "migrations": ["src/database/migrations/*.ts"],
   "entities": ["src/entities/*.ts"],
   "cli": {

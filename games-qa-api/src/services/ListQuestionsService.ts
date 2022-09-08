@@ -1,5 +1,7 @@
 import { getCustomRepository } from "typeorm";
 import { QuestionRepository } from "../repositories/QuestionRepository";
+import { serverError } from "./helpers copy/erros";
+import { success } from "./helpers copy/success";
 
 interface IQuestionFilters {
   theme?: string;
@@ -10,14 +12,19 @@ export const listQuestionsService = async ({
   theme,
   subtheme,
 }: IQuestionFilters) => {
-  const questionRepository = getCustomRepository(QuestionRepository);
+  try {
+    const questionRepository = getCustomRepository(QuestionRepository);
 
-  let questions = [];
-  if (!theme) {
-    questions = await questionRepository.findAll();
-  } else {
-    questions = await questionRepository.findByTheme(theme, subtheme);
+    let questions = [];
+    if (!theme) {
+      questions = await questionRepository.findAll();
+    } else {
+      questions = await questionRepository.findByTheme(theme, subtheme);
+    }
+    return success(questions)
+  } catch (error) {
+    console.log(error);
+    return serverError()
   }
-
-  return questions;
+  
 };

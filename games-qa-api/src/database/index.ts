@@ -2,11 +2,11 @@ import { createConnection } from "typeorm";
 
 createConnection({
   type: "mysql",
-  host: "172.17.0.1",
-  port: parseInt(process.env.MYSQL_TCP_PORT),
+  host: "db",
+  port: 5432,
   username: "root",
-  password: process.env.MYSQL_ROOT_PASSWORD,
-  database: process.env.MYSQL_DATABASE,
+  password: 'somepass',
+  database: 'games-qa',
   migrations: ["src/database/migrations/*.ts"],
   entities: ["src/entities/*.ts"],
   cli: {

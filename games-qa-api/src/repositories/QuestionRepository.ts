@@ -9,7 +9,7 @@ interface IFilters {
 @EntityRepository(Question)
 export class QuestionRepository extends Repository<Question> {
   relationsData = {
-    relations: ["questionOptions"],
+    relations: ["questionOptions", "questionTips"],
   };
 
   findAll() {

@@ -9,6 +9,7 @@ import {
 } from "typeorm";
 import { Answer } from "./Answer";
 import { QuestionOption } from "./QuestionOption";
+import { Tip } from "./Tip";
 
 @Entity("questions")
 export class Question {
@@ -32,6 +33,9 @@ export class Question {
 
   @OneToMany(() => QuestionOption, (questionOption) => questionOption.question)
   questionOptions: QuestionOption[];
+
+  @OneToMany(() => Tip, (tip) => tip.question)
+  questionTips: Tip[];
 
   @OneToOne(() => Answer, (answer) => answer.question)
   answer: Answer;

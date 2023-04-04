@@ -16,7 +16,7 @@ export class Tip {
 
   @JoinColumn({ name: "question_id" })
   @ManyToOne(() => Question)
-  questionId: Question;
+  question: Question;
 
   @Column()
   description: string;
